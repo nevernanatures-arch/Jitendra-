@@ -3,140 +3,362 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nirvana Natures | प्राकृतिक कृषि एवं एग्रोफॉरेस्ट्री</title>
+    <title>Nirvana Natures | प्राकृतिक कृषि, एग्रोफॉरेस्ट्री एवं भूमि विकास</title>
+    <meta name="description" content="Nirvana Natures - सतत कृषि, व्यावसायिक एग्रोफॉरेस्ट्री, खस व टिंबर रोपण और गंगा कछार भूमि विकास।">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <style>
+        :root {
+            --primary: #1b4332;
+            --primary-light: #2d6a4f;
+            --accent: #d8f3dc;
+            --gold: #d4a373;
+            --text-dark: #212529;
+            --text-muted: #495057;
+            --bg-light: #f8f9fa;
+            --white: #ffffff;
+        }
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
         }
         body {
-            background-color: #f7faf7;
-            color: #2d3748;
+            background-color: var(--bg-light);
+            color: var(--text-dark);
             line-height: 1.6;
         }
-        header {
-            background: linear-gradient(135deg, #1e4620, #2e7d32);
-            color: white;
-            padding: 40px 20px;
+        /* Top Bar */
+        .top-bar {
+            background-color: var(--primary);
+            color: var(--accent);
+            padding: 10px 20px;
+            font-size: 0.9rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        .top-bar a {
+            color: var(--accent);
+            text-decoration: none;
+            margin-left: 15px;
+        }
+        /* Hero Banner */
+        .hero {
+            position: relative;
+            background: linear-gradient(rgba(15, 35, 24, 0.75), rgba(15, 35, 24, 0.85)), 
+                        url('https://images.unsplash.com/photo-1500382017468-9049fed747ef?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+            color: var(--white);
             text-align: center;
+            padding: 100px 20px 90px;
         }
-        header h1 {
-            font-size: 2.5rem;
-            margin-bottom: 10px;
-            letter-spacing: 1px;
+        .hero h1 {
+            font-size: 3.2rem;
+            letter-spacing: 1.5px;
+            margin-bottom: 15px;
+            font-weight: 700;
         }
-        header p {
-            font-size: 1.2rem;
-            opacity: 0.9;
+        .hero p.tagline {
+            font-size: 1.35rem;
+            max-width: 800px;
+            margin: 0 auto 30px;
+            color: #d8f3dc;
+            font-weight: 300;
         }
+        .hero-btn {
+            display: inline-block;
+            background: var(--gold);
+            color: var(--primary);
+            font-weight: 600;
+            padding: 14px 32px;
+            border-radius: 30px;
+            text-decoration: none;
+            transition: 0.3s;
+            font-size: 1.05rem;
+        }
+        .hero-btn:hover {
+            background: #faedcd;
+            transform: translateY(-2px);
+        }
+        /* Containers */
         .container {
-            max-width: 1000px;
-            margin: 30px auto;
-            padding: 0 20px;
+            max-width: 1140px;
+            margin: 0 auto;
+            padding: 60px 20px;
         }
-        .card-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
-            margin-top: 25px;
-        }
-        .card {
-            background: white;
-            border-radius: 8px;
-            padding: 25px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-            border-top: 4px solid #2e7d32;
-        }
-        .card h3 {
-            color: #1e4620;
-            margin-bottom: 12px;
-            font-size: 1.3rem;
-        }
-        .about-section {
-            background: white;
-            padding: 30px;
-            border-radius: 8px;
-            margin-bottom: 30px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-        }
-        .about-section h2 {
-            color: #1e4620;
-            margin-bottom: 15px;
-            border-bottom: 2px solid #e2e8f0;
-            padding-bottom: 8px;
-        }
-        .contact-box {
-            background: #e8f5e9;
-            border: 1px solid #c8e6c9;
-            border-radius: 8px;
-            padding: 25px;
-            margin-top: 30px;
+        .section-title {
             text-align: center;
+            margin-bottom: 45px;
         }
-        .contact-box h3 {
-            color: #1e4620;
+        .section-title h2 {
+            font-size: 2.2rem;
+            color: var(--primary);
+            position: relative;
+            display: inline-block;
+            padding-bottom: 12px;
+        }
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 70px;
+            height: 3px;
+            background: var(--gold);
+            border-radius: 2px;
+        }
+        /* About Section */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+            background: var(--white);
+            border-radius: 12px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+        .about-text h3 {
+            font-size: 1.7rem;
+            color: var(--primary);
             margin-bottom: 15px;
         }
-        .contact-details {
-            font-size: 1.1rem;
+        .about-text p {
+            color: var(--text-muted);
+            margin-bottom: 15px;
+            font-size: 1.05rem;
+        }
+        .about-img img {
+            width: 100%;
+            height: 340px;
+            object-fit: cover;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        /* Services / Pillars */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+        }
+        .service-card {
+            background: var(--white);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.06);
+            transition: 0.3s;
+            display: flex;
+            flex-direction: column;
+        }
+        .service-card:hover {
+            transform: translateY(-6px);
+        }
+        .service-card img {
+            width: 100%;
+            height: 210px;
+            object-fit: cover;
+        }
+        .service-body {
+            padding: 25px;
+            flex-grow: 1;
+        }
+        .service-body h3 {
+            font-size: 1.35rem;
+            color: var(--primary);
+            margin-bottom: 12px;
+        }
+        .service-body p {
+            color: var(--text-muted);
+            font-size: 0.98rem;
+        }
+        /* Key Focus Badges */
+        .badge-box {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 15px;
+        }
+        .badge {
+            background: var(--accent);
+            color: var(--primary);
+            font-size: 0.85rem;
+            padding: 5px 12px;
+            border-radius: 15px;
+            font-weight: 600;
+        }
+        /* Contact Section */
+        .contact-card {
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            color: var(--white);
+            border-radius: 16px;
+            padding: 50px 30px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+        .contact-card h2 {
+            font-size: 2.2rem;
+            margin-bottom: 15px;
+        }
+        .contact-card p {
+            font-size: 1.15rem;
+            color: var(--accent);
+            max-width: 650px;
+            margin: 0 auto 35px;
+        }
+        .contact-info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 25px;
+            max-width: 850px;
+            margin: 0 auto;
+        }
+        .info-item {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+            backdrop-filter: blur(5px);
+        }
+        .info-item i {
+            font-size: 1.8rem;
+            color: var(--gold);
             margin-bottom: 10px;
         }
+        .info-item h4 {
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+        }
+        .info-item a, .info-item p {
+            color: var(--white);
+            text-decoration: none;
+            font-size: 1rem;
+        }
+        /* Footer */
         footer {
-            background: #1e4620;
-            color: white;
+            background: #112d21;
+            color: #95d5b2;
             text-align: center;
-            padding: 20px;
-            margin-top: 40px;
+            padding: 30px 20px;
             font-size: 0.95rem;
         }
         footer a {
-            color: #a5d6a7;
+            color: var(--gold);
             text-decoration: none;
+        }
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.3rem; }
+            .about-grid { grid-template-columns: 1fr; }
+            .top-bar { justify-content: center; text-align: center; gap: 8px; }
         }
     </style>
 </head>
 <body>
 
-    <header>
-        <h1>Nirvana Natures</h1>
-        <p>सतत कृषि, व्यावसायिक एग्रोफॉरेस्ट्री एवं भूमि विकास परामर्श</p>
+    <div class="top-bar">
+        <div><i class="fa-solid fa-location-dot"></i> सीतापुर, उत्तर प्रदेश</div>
+        <div>
+            <a href="tel:+919956207223"><i class="fa-solid fa-phone"></i> +91 9956207223</a>
+            <a href="mailto:nevernanatures@gmail.com"><i class="fa-solid fa-envelope"></i> nevernanatures@gmail.com</a>
+        </div>
+    </div>
+
+    <header class="hero">
+        <h1>NIRVANA NATURES</h1>
+        <p class="tagline">प्राकृतिक खेती, व्यावसायिक टिंबर एग्रोफॉरेस्ट्री एवं गंगा कछार भूमि पुनरुद्धार</p>
+        <a href="#contact" class="hero-btn">परामर्श व सहयोग हेतु संपर्क करें</a>
     </header>
 
     <div class="container">
-        <section class="about-section">
-            <h2>हमारे बारे में</h2>
-            <p><strong>Nirvana Natures</strong> प्राकृतिक खेती, उच्च-घनत्व टिंबर वृक्षारोपण और आधुनिक भूमि प्रबंधन के माध्यम से बंजर व कछारी जमीनों को समृद्ध बनाने की दिशा में समर्पित है। हम पर्यावरण संतुलन और दीर्घकालिक कृषि लाभ के लिए वैज्ञानिक व प्राकृतिक विधियों का समन्वय करते हैं।</p>
-        </section>
+        <!-- About Section -->
+        <div class="about-grid">
+            <div class="about-text">
+                <h3>प्राकृतिक संतुलन और टिकाऊ समृद्धि</h3>
+                <p><strong>Nirvana Natures</strong> बंजर, रेतीली एवं बाढ़ प्रभावित कछारी भूमियों को वैज्ञानिक और जैविक पद्धतियों से समृद्ध, उपजाऊ एवं टिकाऊ कृषि मॉडल में बदलने की दिशा में समर्पित है।</p>
+                <p>हम उच्च-घनत्व टिंबर वृक्षारोपण, खस (Vetiver) की मेड़बंदी, जैविक मल्चिंग और जल प्रबंधन तकनीकों के समन्वय से भूमि की दीर्घकालिक उत्पादकता बढ़ाने पर कार्य करते हैं।</p>
+            </div>
+            <div class="about-img">
+                <img src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Agroforestry Plantation">
+            </div>
+        </div>
+    </div>
 
-        <section>
-            <div class="card-grid">
-                <div class="card">
-                    <h3>व्यावसायिक एग्रोफॉरेस्ट्री</h3>
-                    <p>उच्च गुणवत्ता वाले टिंबर, यूकेलिप्टस, अर्जुन, जामुन और औषधीय खस की योजनाबद्ध खेती और तकनीकी परामर्श।</p>
+    <!-- Core Services -->
+    <section style="background: #edf2f4; padding: 60px 0;">
+        <div class="container" style="padding-top: 0; padding-bottom: 0;">
+            <div class="section-title">
+                <h2>हमारी प्रमुख गतिविधियाँ एवं सेवाएँ</h2>
+            </div>
+            <div class="services-grid">
+                <!-- Card 1 -->
+                <div class="service-card">
+                    <img src="https://images.unsplash.com/photo-1448375240586-882707db888b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Commercial Timber Agroforestry">
+                    <div class="service-body">
+                        <h3>व्यावसायिक टिंबर एग्रोफॉरेस्ट्री</h3>
+                        <p>यूकेलिप्टस, अर्जुन, जामुन, बेल, आंवला एवं कटहल का वैज्ञानिक लेआउट के साथ रोपण ताकि भूमि के हर हिस्से से अधिकतम दीर्घकालिक मूल्य मिल सके।</p>
+                        <div class="badge-box">
+                            <span class="badge">उच्च-घनत्व रोपण</span>
+                            <span class="badge">टिंबर प्रबंधन</span>
+                        </div>
+                    </div>
                 </div>
-                <div class="card">
-                    <h3>भूमि विकास व मृदा सुधार</h3>
-                    <p>बाढ़ प्रभावित/कछारी क्षेत्रों में जल प्रबंधन, जैविक मल्चिंग, हरी खाद और वैज्ञानिक लेआउट का विकास।</p>
+
+                <!-- Card 2 -->
+                <div class="service-card">
+                    <img src="https://images.unsplash.com/photo-1592982537447-7440770cbfc9?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Soil Restoration and Mulching">
+                    <div class="service-body">
+                        <h3>कछार भूमि विकास व मृदा सुधार</h3>
+                        <p>कटरी भूमियों में जलकुंभी मल्चिंग, ढैंचा-सनई द्वारा हरी खाद, खस की प्राकृतिक बायो-फेंसिंग और जल संरक्षण तकनीकों द्वारा मिट्टी की उर्वरता का पुनरुद्धार।</p>
+                        <div class="badge-box">
+                            <span class="badge">जैविक मल्चिंग</span>
+                            <span class="badge">सॉइल रीस्टोरेशन</span>
+                        </div>
+                    </div>
                 </div>
-                <div class="card">
-                    <h3>एग्री-कंसल्टेंसी</h3>
-                    <p>व्यावसायिक फार्म प्रबंधन, सोलर पंपिंग और एकीकृत प्रसंस्करण इकाइयों की स्थापना में व्यावहारिक मार्गदर्शन।</p>
+
+                <!-- Card 3 -->
+                <div class="service-card">
+                    <img src="https://images.unsplash.com/photo-1473081556163-2a17de81fc97?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Integrated Farm Processing">
+                    <div class="service-body">
+                        <h3>कृषि प्रसंस्करण एवं परामर्श</h3>
+                        <p>परंपरागत देग-भभका खस आसवन, कटहल प्रसंस्करण, सोलर पंपिंग अधोसंरचना और फार्म लेआउट विकास हेतु तकनीकी एवं व्यावहारिक मार्गदर्शन।</p>
+                        <div class="badge-box">
+                            <span class="badge">खस आसवन</span>
+                            <span class="badge">सोलर अधोसंरचना</span>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <section class="contact-box">
-            <h3>संपर्क सूत्र</h3>
-            <p class="contact-details"><strong>स्थान:</strong> सीतापुर, उत्तर प्रदेश</p>
-            <p class="contact-details"><strong>ईमेल:</strong> nevernanatures@gmail.com</p>
-            <p class="contact-details"><strong>मोबाइल:</strong> +91 9956207223</p>
-        </section>
+    <!-- Contact Section -->
+    <div class="container" id="contact">
+        <div class="contact-card">
+            <h2>Nirvana Natures से जुड़ें</h2>
+            <p>फार्म विकास, एग्रोफॉरेस्ट्री लेआउट या परामर्श के लिए सीधे संपर्क करें</p>
+            <div class="contact-info-grid">
+                <div class="info-item">
+                    <i class="fa-solid fa-location-dot"></i>
+                    <h4>हमारा केंद्र</h4>
+                    <p>सीतापुर, उत्तर प्रदेश</p>
+                </div>
+                <div class="info-item">
+                    <i class="fa-solid fa-phone"></i>
+                    <h4>फ़ोन / व्हाट्सएप</h4>
+                    <p><a href="tel:+919956207223">+91 9956207223</a></p>
+                </div>
+                <div class="info-item">
+                    <i class="fa-solid fa-envelope"></i>
+                    <h4>आधिकारिक ईमेल</h4>
+                    <p><a href="mailto:nevernanatures@gmail.com">nevernanatures@gmail.com</a></p>
+                </div>
+            </div>
+        </div>
     </div>
 
     <footer>
-        <p>© 2026 Nirvana Natures. सर्वाधिकार सुरक्षित। | <a href="https://nevernanetures.com">nevernanetures.com</a></p>
+        <p>© 2026 <strong>Nirvana Natures</strong>. सर्वाधिकार सुरक्षित। | <a href="https://nevernanetures.com">nevernanetures.com</a></p>
     </footer>
 
 </body>
